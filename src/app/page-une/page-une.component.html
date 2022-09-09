@@ -1,0 +1,38 @@
+<div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <nav class="relative w-full flex flex-wrap items-center justify-between py-3 bg-blue-600 shadow-lg">
+        <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+          <div class="container-fluid">
+            <a (click)="goToPageUne()" class="text-xl text-white">NoteApp</a>
+          </div>
+          <div class="flow-root">
+            <div class="float-right">
+                <button (click)="goToPageConnexion()" class="text-xl text-white">Déconnexion</button>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <br>
+    <p class="text-center">Liste des notes</p>
+    <div class="container">
+        <div class="row">
+            <div class="col m4 s6">
+                <div class="card-stacked">
+                    <div class="card-contend">
+                        <p>
+                            <a (click)="goToPageTrois(note)">  Note {{ note.id }}</a>     
+                        </p>
+                        <p>  {{ note.contenu }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="flow-root">
+        <div class="float-right">
+          <button (click)="goToPageDeux()" type="button" class="inline-block rounded-full bg-blue-600 text-white leading-normal shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg ">
+            Ajouter une Note
+          </button>
+        </div>
+    </div>
+</div>
