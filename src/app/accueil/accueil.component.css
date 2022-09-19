@@ -1,0 +1,35 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+.icon_new{
+    /* Ellipse 2 */
+
+position: absolute;
+left: 500px;
+top: 581px;
+font-size: 50px;
+
+color: #F47E20;
+
+}
+.list_note{
+   
+
+width: 75px;
+height: 75px;
+
+
+}
