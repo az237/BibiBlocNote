@@ -13,7 +13,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   onlogin(){
-    this.router.navigateByUrl('accueil');
+    this.router.navigateByUrl('/listenote');
   }
 
 }
