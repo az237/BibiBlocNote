@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
+//import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 import {FontAwesomeModule,FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,13 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { FooterComponent } from './footer/footer.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AuthentificationService } from './services/authentification.service';
+
 //import { far } from '@fortawesome/free-regular-svg-icons';
 @NgModule({
   declarations: [
@@ -29,20 +35,24 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     LandingPageComponent,
     FooterComponent,
-    SingleNoteComponent
+    SingleNoteComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    NgxBootstrapIconsModule.pick(allIcons),
+   // NgxBootstrapIconsModule.pick(allIcons),
     FontAwesomeModule,
     OwlModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
     
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

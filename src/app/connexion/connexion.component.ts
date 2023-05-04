@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router'
+import { AuthentificationService } from '../services/authentification.service';
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -7,13 +8,13 @@ import { Router} from '@angular/router'
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authServive:AuthentificationService) { }
 
   ngOnInit(): void {
   }
 
-  onlogin(){
+  /*onlogin(){
     this.router.navigateByUrl('/listenote');
-  }
+  }*/
 
 }

@@ -8,13 +8,18 @@ import {NewnoteComponent} from "./newnote/newnote.component";
 //import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleNoteComponent } from './single-note/single-note.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SecureInnerPageGuard } from './guard/secure-inner-page.guard';
+import { AuthGuard } from './guard/auth.guard';
 const routes: Routes = [
-  {path: '', component: LandingPageComponent},
-  {path : 'login', component: ConnexionComponent},
-  {path : 'inscription', component: InscriptionComponent},
-  {path: 'listenote', component: AccueilComponent},
+  {path: '', redirectTo: '/accueil', pathMatch: 'full'},
+  {path: 'accueil', component: LandingPageComponent},
+  {path : 'login', component: ConnexionComponent},//, canActivate:[SecureInnerPageGuard]
+  {path : 'inscription', component: InscriptionComponent},//, canActivate:[SecureInnerPageGuard]
+  {path: 'listenote', component: AccueilComponent, canActivate:[AuthGuard]},
   {path: 'new_note', component:NewnoteComponent},
-  {path: 'listenote/:id', component:SingleNoteComponent}
+  {path: 'listenote/:id', component:SingleNoteComponent},
+  { path: 'forgot-password', component: ForgotPasswordComponent }
   
 ];
 
